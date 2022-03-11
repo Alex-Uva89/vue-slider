@@ -12,7 +12,7 @@
 	<div id="root">
 		<div class="slider">
 			<div class="slide">
-				<img :src="arrSlides[activeIndex].image" :alt="arrSlides[activeIndex].title">
+				<img :src="arrSlides[activeIndex].image" @mouseover="stopInterval()" @mouseout="startInterval()" :alt="arrSlides[activeIndex].title">
 				<div class="slide-contents">
 					<h2 class="slide-title">{{ arrSlides[activeIndex].title }}</h2>
 					<p class="slide-text">{{ arrSlides[activeIndex].txt }}</p>
@@ -23,8 +23,8 @@
 				<div v-for="(thumb, index) in arrSlides" @click="activeIndex = index" class="thumb" :class="index == activeIndex ? 'active' : ' '">
 					<img :src="thumb.image" :alt="thumb.title">
 				</div>
-				<button class="btn-control btn-previus">&and;</button>
-				<button class="btn-control btn-next">&or;</button>
+				<button @click="previous()" class="btn-control btn-previus">&and;</button>
+				<button @click="next()" class="btn-control btn-next">&or;</button>
 			</div>
 		</div>
 	</div>
