@@ -1,6 +1,7 @@
 const app = new Vue({
-	el: '#container',
+	el: '#root',
 	data: {
+        activeIndex: 0,
         arrSlides: [
             {
                 title:'Svezia',
